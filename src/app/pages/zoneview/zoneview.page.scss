@@ -1,0 +1,122 @@
+@media only screen and (min-width: 500px){
+    ion-content{
+    // --background: url("/assets/imgs/farmio.jpg") cover no-repeat;
+    --background: white;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position-y: 0%;
+    --padding-end:25%;
+    --padding-start:25%;
+    }
+  }
+  .mybox-inner{
+    border: 2px solid green;
+    min-height: 300px;
+  }
+  .mybox{
+    text-align: left !important;
+    display: inline-block;
+    /* border: 2px solid green; */
+    /* min-height: 300px; */
+    padding: 10px;
+  }
+  .sensor-box{
+    position: relative;
+    // position: relative;
+    // box-shadow: 0 0 50px rgba(1,0,1,0.8);
+  z-index: 10;
+    min-height: 100px;
+    margin: 4px 0px;
+    text-align: left;
+    padding: 5px;
+    border-radius: 8px;
+    // color: white;
+    color: black;
+    // border: 2px outset white;
+    border: 1px outset rgb(119, 13, 13);
+    // background:  url("/assets/imgs/wood.jpg") no-repeat 100% 100%;
+    background:  white;
+    // opacity: 0.9;
+  
+  }
+  .dev-name{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 1.1rem;
+    width:100%;
+    text-align: center;
+    border-bottom: 0.02em solid rgb(226, 225, 225);
+    margin-bottom: 8px;
+    line-height: 18px;
+  }
+  .dev-param-name{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 0.8rem;
+    width:100%;
+    text-align: center;
+    margin-bottom: 2px;
+  }
+  .dev-status{
+    font-size: 1.0rem;
+    width:100%;
+    text-align: center;
+  }
+  .dev-value{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   font-size: 1.8rem;
+   font-weight: bold;
+   width:100%;
+   text-align: center;
+  
+  }
+  .dev-timestamp{
+    margin-top: 14px;
+  }
+  .status-icon{
+   position: absolute;
+   top:10px;
+   right:10px;
+  //  font-size: 2.3rem;
+  }
+  .status-ok{
+    color: rgb(22, 219, 65)
+  }
+  .status-bad{
+  color: rgb(235, 76, 76);
+  }
+  .status-warning{
+  color: rgb(235, 129, 8);
+  }
+  .my-nav-button{
+    position: fixed;
+    z-index: 88;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 650;
+    border-radius: 10px;
+    top: 5px;
+    left: 5px;
+    padding: 2px 6px;
+  }
+  .zone-name{
+    font-family: Copperplate,"Copperplate Gothic Light",fantasy;
+    color: white;
+    font-weight: bold;
+  }
+  .zone-desc{
+    font-family: Copperplate,"Copperplate Gothic Light",fantasy;
+    color: white;
+  }
+  .header-group{
+    padding: 4px;
+    border-radius: 16px;
+    background:  url("/assets/imgs/wood.jpg") no-repeat 100% 100%;
+    opacity: 0.9;
+    margin: 0 10px;
+    // background-image: linear-gradient(45deg, #252424 0%, #030100 100%);
+    
+  }
+  .dev-value-unit{
+    font-size:13px;
+  }
+  .status-label{
+    font-size: 0.8rem;
+  }

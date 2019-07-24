@@ -1,0 +1,107 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button>
+        </ion-back-button>
+      </ion-buttons>
+      <ion-title>{{telemetry.config.zones[zoneIndex].zoneName}}</ion-title>
+    
+    </ion-toolbar>
+  
+  </ion-header>
+  <ion-toolbar id="info-toolbar" style="--min-height:30px;--background: url('/assets/imgs/leavestbr.jpg');">
+  </ion-toolbar>
+  <ion-toolbar id="info-toolbar2" style="--min-height:30px;">
+      <!-- --background: url('/assets/imgs/leavestbr.jpg'); -->
+    <ion-segment color="primary" (ionChange)="segmentChanged($event)" style="color: white;" value="data">
+        <ion-segment-button value="data">
+          <ion-label>Data</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="map">
+          <ion-label>Map</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+  </ion-toolbar>
+  
+
+<ion-content>
+  <!-- <div style="height: 100%;width:100%;position: relative;">
+    <div style="position: absolute;top:10px;margin:auto;width:100%;text-align:center;"></div>
+      <div id="map_canvas" style="height: 100%;width: 100%;"></div>
+  </div>  -->
+  <img *ngIf="gridView==true" src="assets/imgs/farmiop.jpg" height="100%" width="100%" alt="" srcset="" style="position: absolute;top:0;left:0;">
+    <ion-grid *ngIf="gridView==true">
+        <ion-row>
+    
+      
+          <ion-col *ngFor="let oddDevice of telemetry.zones[zoneIndex].devices;let i = index;" size-xs="6" size-sm="6">
+            <div (click)="showDetails(oddDevice,i)">
+              <div class="bg-light sensor-box shadow-lg">
+                  <div class="status-icon" [ngSwitch]="oddDevice.status">
+                        <ion-icon *ngSwitchCase="'high'" color="danger" size="small" name="arrow-round-up"></ion-icon>
+                        <ion-icon *ngSwitchCase="'low'" color="danger" size="small" name="arrow-round-down"></ion-icon>
+                        <ion-icon *ngSwitchCase="'ok'" color="success" size="small" name="ios-checkmark"></ion-icon>
+                        <ion-icon *ngSwitchDefault color="warning" size="small" name="close"></ion-icon>
+                      </div>
+                    
+                      <div>
+                        <ion-icon name="ios-water" color="primary" size="small" slot="start"></ion-icon>
+                      </div>
+    
+                      <div *ngIf="oddDevice.parameter!=undefined" class="dev-param-name">{{oddDevice.parameter}}
+                      </div>
+                      <div *ngIf="oddDevice.value==undefined" class="dev-value">00.00<span class="dev-value-unit"> mm</span>
+                      </div>
+                      <div *ngIf="oddDevice.value!=undefined" class="dev-value">{{oddDevice.value}}<span class="dev-value-unit"> {{oddDevice.unit}}</span>
+                      </div>
+                     
+                      <div class="dev-name">{{oddDevice.name}}</div>
+                      <div [ngSwitch]="oddDevice.status">
+                        <div *ngSwitchCase="'high'" class="dev-status"><span class="status-label"> Status: </span><span class="status-bad">high</span></div>
+                        <div *ngSwitchCase="'low'" class="dev-status"><span class="status-label"> Status: </span><span class="status-bad">low</span></div>
+                        <div *ngSwitchCase="'ok'" class="dev-status"><span class="status-label"> Status: </span><span class="status-ok">ok</span></div>
+                        <div *ngSwitchDefault class="dev-status"><span class="status-label"> Status: </span><span class="status-warning">offline</span></div>
+                      </div>
+                     
+                      <p *ngIf="oddDevice.timestamp==undefined" style="font-size: 0.8rem;width:100%;text-align: center;">-</p>
+                      <p *ngIf="oddDevice.timestamp!=undefined" style="font-size: 0.8rem;width:100%;text-align: center;">{{oddDevice.timestamp}}</p>
+            
+                    </div>
+                   
+            </div>
+       
+       
+        </ion-col>
+        </ion-row>
+      </ion-grid>
+    
+      <div *ngIf="gridView==false" style="height: 100%;width:100%;position: relative;">
+        <div style="position: absolute;top:10px;margin:auto;width:100%;text-align:center;"></div>
+          <div id="map_canvas" style="height: 100%;width: 100%;"></div>
+      </div>
+      <!-- <ion-fab vertical="bottom" horizontal="end" style="z-index: 99999;">
+          <ion-fab-button> <ion-icon name="arrow-dropup"></ion-icon></ion-fab-button>
+        
+          <ion-fab-list side="top" >
+            <ion-fab-button (click)="setGrid('1')">Data View<ion-icon name="apps"></ion-icon></ion-fab-button>
+            <ion-fab-button (click)="setGrid('0')">Map View<ion-icon name="pin"></ion-icon></ion-fab-button>
+          </ion-fab-list>
+        
+        </ion-fab> -->
+       
+        <!-- <ion-tabs>
+          <ion-tab-bar slot="bottom">
+            
+            <ion-tab-button>
+              <ion-icon name="information-circle"></ion-icon>
+              <ion-label>About</ion-label>
+            </ion-tab-button>
+        
+            <ion-tab-button>
+              <ion-icon name="map"></ion-icon>
+              <ion-label>Map View</ion-label>
+            </ion-tab-button>
+        
+          </ion-tab-bar>
+        </ion-tabs> -->
+</ion-content>

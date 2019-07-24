@@ -1,0 +1,23 @@
+<ion-list style="margin-bottom: 0px;">
+    <ion-item button (click)="goToPage('info')">
+        <ion-icon name="information-circle" slot="start"></ion-icon>
+        <ion-label>Crop Info</ion-label>
+    </ion-item>
+    <ion-item button (click)="goToPage('devices')">
+        <ion-icon name="pulse" slot="start"></ion-icon>
+        <ion-label>Sensors</ion-label>
+    </ion-item>
+    <ion-item button (click)="goToPage('alarmhistory')">
+        <ion-icon name="time" slot="start"></ion-icon>
+        <ion-label>Alarm History</ion-label>
+    </ion-item>
+    <ion-item button (click)="goToPage('settings')">
+        <ion-icon name="cog" slot="start"></ion-icon>
+        <ion-label>Settings</ion-label>
+    </ion-item>
+    <ion-item button (click)="goToPage('account')">
+        <ion-icon name="person" slot="start"></ion-icon>
+        <ion-label>Account</ion-label>
+    </ion-item>
+    <!-- <ion-item>item two</ion-item> -->
+  </ion-list>

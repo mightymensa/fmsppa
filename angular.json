@@ -42,7 +42,9 @@
                 "input": "src/app/app.scss"
               }
             ],
-            "scripts": [],
+            "scripts": [
+              "src/assets/chart/Chart.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {

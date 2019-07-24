@@ -1,9 +1,26 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Tab Two
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+    <img src="assets/imgs/farmiop.jpg" height="100%" width="100%" alt="" srcset="" style="position: absolute;top:0;left:0;">
+    <div *ngIf="telemetry.ready">
+
+        <div *ngFor="let zone of telemetry.zones;let i = index;let even = even; let odd = odd">
+          <ion-card class="main-body" color="light" style="background-image: url('assets/imgs/bg4.jpg');">
+    
+            <ion-item ion-button (click)="showZone(zone,i)">
+              <ion-icon color="primary" name="star" size="large" slot="start"></ion-icon>
+              <ion-label>
+                <h2>{{zone.zoneName}}</h2>
+                <p>Rice Plantation</p>
+              </ion-label>
+            </ion-item>
+    
+          </ion-card>
+        </div>
+      </div>
+</ion-content>

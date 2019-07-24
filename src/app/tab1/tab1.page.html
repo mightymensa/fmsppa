@@ -1,41 +1,77 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Tab One
+        <!-- <img src="assets/imgs/icon.png" width="40px" alt="" style="margin: 2px;"> -->
+      <span style="margin: auto 1px">FMS</span>
     </ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button (click)="presentPopover($event)">
+        <ion-icon slot="end" name="menu"></ion-icon>
+      </ion-button>
+
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+<ion-toolbar id="info-toolbar" color=""
+  style="border-bottom: 0.05em solid white;--min-height:25px;--background: url('/assets/imgs/leavestbr.jpg');">
+
+</ion-toolbar>
 
 <ion-content>
-    <ion-card class="welcome-card">
-      <img src="/assets/shapes.svg" alt="" />
-      <ion-card-header>
-        <ion-card-subtitle>Get Started</ion-card-subtitle>
-        <ion-card-title>Welcome to Ionic</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
-      </ion-card-content>
-    </ion-card>
-    <ion-list lines="none">
-      <ion-list-header>
-        <ion-label>Resources</ion-label>
-      </ion-list-header>
-      <ion-item href="https://ionicframework.com/docs/">
-        <ion-icon slot="start" color="medium" name="book"></ion-icon>
-        <ion-label>Ionic Documentation</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/building/scaffolding">
-        <ion-icon slot="start" color="medium" name="build"></ion-icon>
-        <ion-label>Scaffold Out Your App</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/layout/structure">
-        <ion-icon slot="start" color="medium" name="grid"></ion-icon>
-        <ion-label>Change Your App Layout</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/theming/basics">
-        <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
-        <ion-label>Theme Your App</ion-label>
-      </ion-item>
-    </ion-list>
+    <img src="assets/imgs/farmiop.jpg" height="100%" width="100%" alt="" srcset="" style="position: absolute;top:0;left:0;">
+    <!-- <ion-grid>
+      <ion-row>
+
+        <ion-col sizeSm="12" sizeXs="12" sizeMd="6" sizeLg="6">
+          ion-col
+        </ion-col>
+        <ion-col sizeSm="12" sizeXs="12" sizeMd="6" sizeLg="6">
+          ion-col
+        </ion-col>
+      </ion-row>
+
+    </ion-grid> -->
+
+  <ion-card color="light">
+    <img src="assets/imgs/leavestbr.jpg" height="25px" alt="" srcset="">
+    <ion-card-header>
+      <ion-card-subtitle>Farm Info</ion-card-subtitle>
+      <ion-card-title style="font-variant: small-caps;font-size:1.5rem;">{{telemetry.farmName}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      Last Update : {{telemetry.lastUpdate}}
+      <!-- {{telemetry.lastNotificationTimestamp|data:'shortDate'}} -->
+      <div><span>Temperature: </span><span style="font-weight: bold;font-size:1.3rem">{{telemetry.farmTemp}} °C</span>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card color="light" style="border-top: 4px solid orange;">
+    <ion-card-header>
+      <ion-card-subtitle>Notifications</ion-card-subtitle>
+      <!-- <ion-card-title>Farm Info</ion-card-title> -->
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let alm of telemetry.alarms;let ind = index">
+          <ion-label text-wrap  (click)="AckAlarm(alm.device,alm.status,alm.id,ind)">
+            <ion-icon name="warning" color="danger" size="sm"></ion-icon>
+            <ion-text color="primary">
+              <h3>{{alm.status}} Moisture Level</h3>
+            </ion-text>
+            <p>{{alm.device}}</p>
+            <ion-text color="secondary">
+              <p>{{alm.timestamp|date:'medium'}}</p>
+            </ion-text>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button size="small" (click)="goTo('settings')">
+      <ion-icon name="settings"> </ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
 </ion-content>
