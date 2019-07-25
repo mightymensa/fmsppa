@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { InfoService } from 'src/app/services/info.service';
 import { Storage } from '@ionic/storage';
+import { AlertController } from '@ionic/angular';
+import { TelemetryService } from 'src/app/services/telemetry.service';
+import { DatabaseService } from 'src/app/services/database.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account',
@@ -12,7 +16,7 @@ export class AccountPage implements OnInit {
   password = "";
   serverUrl = "";
   farmName = "";
-  constructor(public infoService:InfoService,public storage:Storage) { }
+  constructor(public infoService:InfoService,public storage:Storage,public alrtCtrl:AlertController,public telemetry:TelemetryService,public dbService:DatabaseService,public router:Router) { }
 
   async ngOnInit() {
     let chck = await this.infoService.checkLoggedIn();
@@ -26,5 +30,9 @@ export class AccountPage implements OnInit {
       
     }
   }
-
+logout(){
+ this.telemetry.logout();
+  this.dbService.logout();
+  this.router.navigateByUrl('landing');
+}
 }

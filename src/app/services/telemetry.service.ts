@@ -7,6 +7,7 @@ import { InfoService } from './info.service';
   providedIn: 'root'
 })
 export class TelemetryService {
+  public pollingAgent:any;
   public ready = true;
   public lastUpdate = '';
   public serverUrl = '';
@@ -55,11 +56,12 @@ async loadConfig(){
   }
   getData() {
     var headers = new HttpHeaders({'Content-Type': 'Application/json'});
-    setInterval(() => {
+    this.pollingAgent = setInterval(() => {
       console.log("getting data")
       this.messenger.getData().subscribe(
         async data => {
           if (data['success']) {
+            console.log("got data",data)
             this.farmTemp = data['temperature'];
             this.storage.set('farmTemp',this.farmTemp)
             this.lastUpdate = new Date().toLocaleString();
@@ -86,6 +88,10 @@ async loadConfig(){
           console.log(err);
         }
       );
-    }, 4000);
+    }, 10000);
+  }
+  logout(){
+clearInterval(this.pollingAgent);
+return true;
   }
 }

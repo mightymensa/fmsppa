@@ -12,4 +12,7 @@ export class DatabaseService {
       this.storage.set(obj.name,obj.value)
     }
   }
+  async logout(){
+    await this.storage.clear().then(e=>{return true},err=>{return false})
+  }
 }

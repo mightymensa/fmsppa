@@ -29,7 +29,9 @@
     <div style="position: absolute;top:10px;margin:auto;width:100%;text-align:center;"></div>
       <div id="map_canvas" style="height: 100%;width: 100%;"></div>
   </div>  -->
-  <img *ngIf="gridView==true" src="assets/imgs/farmiop.jpg" height="100%" width="100%" alt="" srcset="" style="position: absolute;top:0;left:0;">
+  <img *ngIf="gridView==true" class="small-bg-pic" src="assets/imgs/farmiop.jpg" height="100%" width="100%" alt="" srcset="" style="position: fixed;top:0;left:0;">
+  <img *ngIf="gridView==true" class="big-bg-pic" src="assets/imgs/farmio.jpg" height="100%" width="100%" alt="" srcset="" style="position: fixed;top:0;left:0;">
+  <!-- <img *ngIf="gridView==true" src="assets/imgs/farmiop.jpg" height="100%" width="100%" alt="" srcset="" style="position: fixed;top:0;left:0;"> -->
     <ion-grid *ngIf="gridView==true">
         <ion-row>
     

@@ -6,7 +6,8 @@
 </ion-header>
 
 <ion-content>
-    <img src="assets/imgs/farmiop.jpg" height="100%" width="100%" alt="" srcset="" style="position: absolute;top:0;left:0;">
+    <img class="small-bg-pic" src="assets/imgs/farmiop.jpg" height="100%" width="100%" alt="" srcset="" style="position: fixed;top:0;left:0;">
+    <img class="big-bg-pic" src="assets/imgs/farmio.jpg" height="100%" width="100%" alt="" srcset="" style="position: fixed;top:0;left:0;">
     <div *ngIf="telemetry.ready">
 
         <div *ngFor="let zone of telemetry.zones;let i = index;let even = even; let odd = odd">
@@ -14,9 +15,8 @@
     
             <ion-item ion-button (click)="showZone(zone,i)">
               <ion-icon color="primary" name="star" size="large" slot="start"></ion-icon>
-              <ion-label>
+              <ion-label  style="padding: 15px;--padding:15px;">
                 <h2>{{zone.zoneName}}</h2>
-                <p>Rice Plantation</p>
               </ion-label>
             </ion-item>
     
