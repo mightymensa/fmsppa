@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ModalController, NavParams } from '@ionic/angular';
+import {Component, OnInit} from '@angular/core';
+import {ModalController, NavParams} from '@ionic/angular';
 
 @Component({
   selector: 'app-detail',
@@ -7,24 +7,24 @@ import { ModalController, NavParams } from '@ionic/angular';
   styleUrls: ['./detail.page.scss'],
 })
 export class DetailPage implements OnInit {
+  googleChartLibrary;
+  constructor(public modalCtrl: ModalController, public navParams: NavParams) {
 
-  constructor(public modalCtrl:ModalController, public navParams: NavParams) { 
-    // console.log(navParams.get('firstName'))
-this.deviceName = navParams.get('deviceName')
-this.setpoint = navParams.get('setpoint')
+    this.deviceName = navParams.get('deviceName');
+    this.setpoint = navParams.get('setpoint');
   }
-  setpoint = ""
-  deviceName = ""
+  setpoint = '';
+  deviceName = '';
   ngOnInit() {
   }
   dismiss() {
-    // using the injected ModalController this page
-    // can "dismiss" itself and optionally pass back data
+ 
     this.modalCtrl.dismiss({
-      'dismissed': true
+      dismissed: true,
     });
   }
-  loadChart(){
-
+  loadChart() {
+    
   }
+
 }

@@ -17,7 +17,7 @@ export class UserGuard implements CanActivate {
     if (val == true) {
       return true;
     } else {
-      this.router.navigateByUrl('landing');
+      this.router.navigate(['landing'],{skipLocationChange:true});
       return false;
     }
   });

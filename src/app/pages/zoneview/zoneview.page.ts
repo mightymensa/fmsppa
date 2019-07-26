@@ -30,7 +30,6 @@ export class ZoneviewPage implements OnInit {
     console.log(this.telemetry.zones)
   }
   async showDetails(zone, ind) {
-    console.log('show deyuiu', zone);
     let modal = await this.modCtrl.create({
       component: DetailPage,
       componentProps: {
@@ -95,8 +94,8 @@ export class ZoneviewPage implements OnInit {
 
     for (let i = 0; i < this.markersToPlot.length; i++) {
       this.plottedMarkers[i] = this.map.addMarkerSync({
-        title: 'Ionic',
-        icon: 'blue',
+        title: this.markersToPlot[i]['name'],
+        icon: 'red',
         animation: 'DROP',
         position: {
           lat: this.markersToPlot[i]['latitude'],
@@ -104,6 +103,10 @@ export class ZoneviewPage implements OnInit {
         },
       });
     }
- 
+ setInterval(()=>{
+   for(let i=0;i<this.telemetry.zones.length;i++){
+    this.plottedMarkers[i].setTitle( this.telemetry.zones[i].name+"\n"+ this.telemetry.zones[i].parameter+" - "+ this.telemetry.zones[i].value+" "+ this.telemetry.zones[i].unit)
+   }
+ },4000)
   }
 }

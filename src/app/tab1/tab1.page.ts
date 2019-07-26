@@ -14,8 +14,8 @@ export class Tab1Page {
     this.router.navigateByUrl(`/${route}`);
   }
   ngOnInit() {
-    this.platform.backButton.subscribe(() => {
-      // this does work
+    this.platform.backButton.subscribeWithPriority(1,()=>{
+      alert("back button pressed")
     });
   }
   async presentPopover(ev: any) {

@@ -71,7 +71,7 @@ export class LandingPage implements OnInit {
       },
       err=>{
         signingin.dismiss();
-        alert(JSON.stringify(err));
+        // alert(JSON.stringify(err));
         this.infoService.simpleAlert("","please check connection");
       }
     )
