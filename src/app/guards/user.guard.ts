@@ -11,7 +11,7 @@ export class UserGuard implements CanActivate {
   constructor(public storage:Storage,public router:Router){}
   canActivate(next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      // return true;
+      return true;
       // console.log('home guard called');
   return this.storage.get('signedIn').then(val => {
     if (val == true) {

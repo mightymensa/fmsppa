@@ -13,6 +13,7 @@ import { HomeOptionsComponent } from './components/home-options/home-options.com
 import { InfoService } from './services/info.service';
 import { TelemetryService } from './services/telemetry.service';
 import { AccountPipe } from './pages/account.pipe';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import {
   GoogleMaps,
   GoogleMap,
@@ -29,6 +30,7 @@ import { DetailPage } from './pages/detail/detail.page';
   entryComponents: [HomeOptionsComponent,DetailPage],
   imports: [FormsModule,HttpClientModule,IonicStorageModule.forRoot(),BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
+    ScreenOrientation,
     GoogleMaps,
     StatusBar,
     SplashScreen,
